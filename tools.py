@@ -1,5 +1,3 @@
-# Write: Tool đã hoàn thành, chỉ cần thêm cấc hàm cho pc
-
 import requests
 import os
 import sys
@@ -12,9 +10,9 @@ from datetime import datetime
 from threading import Thread
 from tkinter import filedialog
 from time import strftime 
-
+from os import system 
 version = 3.7
-os.system('title Hotmail Checker v3.7 | @mnhtools ')
+system('title Hotmail.com checker v3 -  t.me/mnhtools')
 def check_update():
     try:
         update = requests.get('https://raw.githubusercontent.com/lucius164/hotmailchecker/main/.version').text 
@@ -92,7 +90,7 @@ class Hotmail:
                     'https': self.typeprx + '://' + f'{user}:{pw}@{ip}:{port}'
                 }
         except:
-            self.error +=1
+            pass
         while True:
             try:
                 self.headers = {
@@ -141,7 +139,7 @@ class Hotmail:
             try:
                 self.combo = filedialog.askopenfilename(title="Select File Combo", filetypes=(("Text files", "*.txt"), ("All files", "*.*")))
                 self.total_combo = sum(1 for line in open(self.combo, 'r', encoding='utf-8'))
-                print(f'\033[1;31m[\033[1;32m+\033[1;31m]\033[0m Loaded Combo: \033[1;32m{self.total_combo}')
+                print(f'\033[1;37m[\033[1;31m+\033[1;37m]\033[0m Loaded Combo: \033[1;32m{self.total_combo}')
                 break
             except FileNotFoundError:
                 print('\033[1;31mFile Not Found.')
@@ -151,11 +149,11 @@ class Hotmail:
             self.prx = filedialog.askopenfilename(title="Select File Proxies", filetypes=(("Text files", "*.txt"), ("All files", "*.*")))
             if self.prx:
                 self.total_prx = sum(1 for line in open(self.prx, 'r', encoding='utf-8'))   
-                print(f'\033[1;31m[\033[1;32m+\033[1;31m]\033[0m Loaded Proxies: \033[1;32m{self.total_prx}')
+                print(f'\033[1;37m[\033[1;31m+\033[1;37m]\033[0m Loaded Proxies: \033[1;32m{self.total_prx}')
                 print('''
-\033[0m1.\033[1;32m Http/s 
-\033[0m2.\033[1;32m Socks4 
-\033[0m3.\033[1;32m Socks5
+\033[1;37m1:\033[1;32m HTTP/s 
+\033[1;37m2:\033[1;32m SOCKS4 
+\033[1;37m3:\033[1;32m SOCKS5
             ''') 
                 try:
                     prx_choice = int(input('\033[1;37m==>\033[1;32m '))
