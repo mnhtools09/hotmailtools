@@ -75,7 +75,7 @@ class Hotmail:
             open_proxy = open(self.prx, 'r', encoding = 'utf-8').readlines()
             proxy = open_proxy[random.randint(0, len(open_proxy) - 1)].strip()
             if ':' not in proxy:
-                    self.erro+=1
+                    self.error+=1
             elif len(proxy.split(':')) == 2:
                 proxies = proxy.split(':')
                 ip, port = proxies[0], proxies[1]
